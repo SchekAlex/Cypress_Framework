@@ -1,5 +1,4 @@
 import Header from "../sectionObjects/headerSection";
-import BasePage from "./pages";
 
 class HomePage {
 

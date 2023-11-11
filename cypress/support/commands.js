@@ -33,7 +33,7 @@ Cypress.Commands.add('openPage', (page) => {
         default:
             break;
     }
-})
+});
 
 Cypress.Commands.add('waitForElementToBeDisplayed', (element) => {
     cy.log(`Waiting for "${element}" to be displayed...`);
@@ -42,4 +42,15 @@ Cypress.Commands.add('waitForElementToBeDisplayed', (element) => {
       .then(() => {
         cy.log(`"${element}" is displayed.`);
       })
-  });
+});
+
+Cypress.Commands.add('generateRandomString', (length) => {
+    cy.log(`Generating random string with length: ${length}`);
+    let chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()';
+    let charLength = chars.length;
+    let result = '';
+    for( let i = 0; i< length; i++){
+        result += chars.charAt(Math.floor(Math.random() * charLength));
+    }
+    return result;
+})
